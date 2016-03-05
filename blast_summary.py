@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # This script is for summarizing BLAST XML results into a table
 
 # Edits
@@ -56,7 +56,7 @@ with open(parsedOpts.input) as fBlast:
          break
       else:
          pass
-       
+
 #For output file
 if parsedOpts.output:
    if (parsedOpts.output).endswith(".sum"):
