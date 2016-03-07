@@ -29,11 +29,10 @@ reFeatBlock = re.compile(">Feature[\s][\d\|\w\.]+\n(?:(?:[\t]|[\>\<](?=\d)|[\d])
 reId = re.compile(">Feature[\s](?P<id>[\S]+)\n")
 
 # Regex that matches a CDS block in a feature block
-#reCdsBlock = re.compile("[\d]+\t[\d]+\tCDS\n(?:[\d]+\t[\d]+\n)+")
-reCdsBlock = re.compile("^[\d]+\t[\d]+\tCDS\n(?:[\d]+\t[\d]+\n)+")
+reCdsBlock = re.compile("^[\d]+\t[\d]+\tCDS\n(?:[\d]+\t[\d]+\n)+(?=\t)", re.M)
 
 # Regex that matches a CDS block in a feature block, with fuzz
-reCdsBlkfz = re.compile("[\>\<\d]+\t[\>\<\d]+\tCDS\n(?:[\>\<\d]+\t[\>\<\d]+\n)+")
+reCdsBlkfz = re.compile("^[\>\<\d]+\t[\>\<\d]+\tCDS\n(?:[\>\<\d]+\t[\>\<\d]+\n)+(?=\t)", re.M)
 
 # Regex that matches an exon pair in a CDS block
 rePosPair = re.compile("(?P<start>[\S]+)\t(?P<stop>[\S]+)")
