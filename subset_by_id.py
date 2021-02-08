@@ -15,6 +15,10 @@ from os import path
 
 
 def fa_by_block(pfa):
+    """
+    From a multifasta file,
+    return a list of fasta string blocks.
+    """
     sfa_blk = "(?P<blk>^>(?P<id>[^\n]+)\n^[^>]+\n)"
     ore = re.compile(sfa_blk, re.M)
     with open(pfa, "r") as fsrc:
@@ -24,6 +28,11 @@ def fa_by_block(pfa):
 
 
 def clean_fa(lids_sub, psrc, pout):
+    """
+    From a source multifasta file,
+    select fasta blocks by ID
+    and write selection to a new file.
+    """
     dblks = {t[1]: t[0] for t in fa_by_block(psrc)}
     lblks = [dblks[sid] for sid in lids_sub]
     with open(pout, "w") as fout:
@@ -51,6 +60,5 @@ if __name__ == "__main__":
         print(shelp)
         exit()
 
-    # Main task
     main(psrc, psub, pout, pstats)
 # """
