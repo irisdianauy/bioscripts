@@ -28,7 +28,7 @@ def main(pin, pout, imin, sformat):
     lfiles = glob(f"{pin}/*.*")
     for pfile in lfiles:
         sfile, sext = path.splitext(pfile)
-        samp = (path.basename(sfile)).replace(sext, "")
+        samp = path.basename(sfile)
         pnew = f"{pout}/{samp}_{imin}up{sext}"
         gen_new_file(pfile, pnew, imin, sformat)
 
